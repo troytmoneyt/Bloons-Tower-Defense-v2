@@ -129,7 +129,8 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     } else {
         if (!(menu_open) && game_started) {
-            timer.background(function () {
+            timer.backg
+            (function () {
                 if (overlapping_sprite_of_kind(sprite_cursor_pointer, SpriteKind.Tower)) {
                     overlapping_sprite = overlapped_sprite_of_kind(sprite_cursor_pointer, SpriteKind.Tower)
                     if (sprites.readDataString(overlapping_sprite, "name") == "dart_monkey") {
@@ -357,8 +358,8 @@ function fade_out (time: number, block: boolean) {
 info.onCountdownEnd(function () {
     if (!(starting_wave)) {
         wave += 1
-        starting_wave = true
-        in_wave = true
+        starting_wave = false
+        in_wave = false
         timer.background(function () {
             Notification.notify("Wave " + wave + " begin!")
         })

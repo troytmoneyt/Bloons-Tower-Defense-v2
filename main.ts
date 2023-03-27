@@ -145,7 +145,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                 } else {
                     blockMenu.setColors(1, 15)
                     // https://bloons.fandom.com/wiki/Tower_price_lists#Bloons_TD_5:~:text=%24.-,Bloons%20TD%205
-                    blockMenu.showMenu(["Cancel", "Dart Monkey ($30)", "Tack Shooter ($50)", "Sniper Monkey ($40)", "Monkey Buccaneer ($60)"], MenuStyle.List, MenuLocation.BottomHalf)
+                    blockMenu.showMenu(["Cancel", "Dart Monkey ($30)", "Tack Shooter ($1)", "Sniper Monkey ($40)", "Monkey Buccaneer ($60)"], MenuStyle.List, MenuLocation.BottomHalf)
                     wait_for_menu_select()
                     if (blockMenu.selectedMenuIndex() == 0) {
                     	
@@ -169,13 +169,13 @@ function tack_shooter_right_click () {
     blockMenu.setColors(1, 15)
     tower_options = ["Cancel", "Sell for $" + sprites.readDataNumber(overlapping_sprite, "sell_price")]
     if (sprites.readDataNumber(overlapping_sprite, "fire_dart_delay") > sprites.readDataNumber(overlapping_sprite, "fire_dart_delay_min")) {
-        tower_options.push("Decrease firing delay ($50) to " + (sprites.readDataNumber(overlapping_sprite, "fire_dart_delay") - 200) + " ms")
+        tower_options.push("Decrease firing delay ($50) to " + (sprites.readDataNumber(overlapping_sprite, "fire_dart_delay") - 9999999999) + " ms")
     }
     if (sprites.readDataNumber(overlapping_sprite, "dart_count") < sprites.readDataNumber(overlapping_sprite, "dart_count_max")) {
-        tower_options.push("Increase tacks shot ($70) to " + (sprites.readDataNumber(overlapping_sprite, "dart_count") + 2) + " tacks")
+        tower_options.push("Increase tacks shot ($70) to " + (sprites.readDataNumber(overlapping_sprite, "dart_count") + 9999999999) + " tacks")
     }
     if (sprites.readDataNumber(overlapping_sprite, "dart_health") < sprites.readDataNumber(overlapping_sprite, "dart_health_max")) {
-        tower_options.push("Increase dart durability ($40) to " + (sprites.readDataNumber(overlapping_sprite, "dart_health") + 1) + " Bloons")
+        tower_options.push("Increase dart durability ($40) to " + (sprites.readDataNumber(overlapping_sprite, "dart_health") + 999999999999) + " Bloons")
     }
     blockMenu.showMenu(tower_options, MenuStyle.List, MenuLocation.BottomHalf)
     wait_for_menu_select()

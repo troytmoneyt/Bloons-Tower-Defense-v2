@@ -2,7 +2,7 @@ namespace SpriteKind {
     export const Tower = SpriteKind.create()
 }
 function initialize_variables () {
-    wave = 5
+    wave = 1
     starting_wave = false
     in_wave = false
     menu_open = false
@@ -357,7 +357,7 @@ function fade_out (time: number, block: boolean) {
 }
 info.onCountdownEnd(function () {
     if (!(starting_wave)) {
-        wave += 2
+        wave += 100
         starting_wave = false
         in_wave = false
         timer.background(function () {

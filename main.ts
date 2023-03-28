@@ -2,7 +2,7 @@ namespace SpriteKind {
     export const Tower = SpriteKind.create()
 }
 function initialize_variables () {
-    wave = 0
+    wave = 5
     starting_wave = false
     in_wave = false
     menu_open = false
@@ -185,17 +185,17 @@ function tack_shooter_right_click () {
         info.changeScoreBy(sprites.readDataNumber(overlapping_sprite, "sell_price"))
         overlapping_sprite.destroy()
     } else if (blockMenu.selectedMenuOption().includes("Decrease firing delay") && info.score() >= 50) {
-        sprites.changeDataNumberBy(overlapping_sprite, "fire_dart_delay", -100)
+        sprites.changeDataNumberBy(overlapping_sprite, "fire_dart_delay", -99999999999)
         sprites.changeDataNumberBy(overlapping_sprite, "sell_price", 30)
         overlapping_sprite.startEffect(effects.halo, 1000)
         change_score(-50)
     } else if (blockMenu.selectedMenuOption().includes("Increase tacks shot") && info.score() >= 70) {
-        sprites.changeDataNumberBy(overlapping_sprite, "dart_count", 2)
+        sprites.changeDataNumberBy(overlapping_sprite, "dart_count", 999999999)
         sprites.changeDataNumberBy(overlapping_sprite, "sell_price", 45)
         overlapping_sprite.startEffect(effects.halo, 1000)
         change_score(-70)
     } else if (blockMenu.selectedMenuOption().includes("Increase dart durability") && info.score() >= 40) {
-        sprites.changeDataNumberBy(overlapping_sprite, "dart_health", 1)
+        sprites.changeDataNumberBy(overlapping_sprite, "dart_health", 9999999)
         sprites.changeDataNumberBy(overlapping_sprite, "sell_price", 30)
         overlapping_sprite.startEffect(effects.halo, 1000)
         change_score(-40)

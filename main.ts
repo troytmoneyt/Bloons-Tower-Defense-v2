@@ -1028,7 +1028,7 @@ function can_find_farthest_among_path_sprite_of_kind (sprite: Sprite, kind: numb
 }
 sprites.onCreated(SpriteKind.Projectile, function (sprite) {
     sprite.setFlag(SpriteFlag.GhostThroughSprites, false)
-    sprite.setFlag(SpriteFlag.Invisible, false)
+    sprite.setFlag(SpriteFlag.Invisible, true)
     sprite.setFlag(SpriteFlag.GhostThroughTiles, true)
     sprite.setFlag(SpriteFlag.GhostThroughWalls, false)
 })

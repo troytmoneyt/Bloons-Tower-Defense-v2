@@ -169,13 +169,13 @@ function tack_shooter_right_click () {
     blockMenu.setColors(1, 15)
     tower_options = ["Cancel", "Sell for $" + sprites.readDataNumber(overlapping_sprite, "sell_price")]
     if (sprites.readDataNumber(overlapping_sprite, "fire_dart_delay") > sprites.readDataNumber(overlapping_sprite, "fire_dart_delay_min")) {
-        tower_options.push("Decrease firing delay ($50) to " + (sprites.readDataNumber(overlapping_sprite, "fire_dart_delay") - 9999999999) + " ms")
+        tower_options.push("Decrease firing delay ($50) to " + (sprites.readDataNumber(overlapping_sprite, "fire_dart_delay") - 250) + " ms")
     }
     if (sprites.readDataNumber(overlapping_sprite, "dart_count") < sprites.readDataNumber(overlapping_sprite, "dart_count_max")) {
-        tower_options.push("Increase tacks shot ($70) to " + (sprites.readDataNumber(overlapping_sprite, "dart_count") + 9999999999) + " tacks")
+        tower_options.push("Increase tacks shot ($70) to " + (sprites.readDataNumber(overlapping_sprite, "dart_count") + 1) + " tacks")
     }
     if (sprites.readDataNumber(overlapping_sprite, "dart_health") < sprites.readDataNumber(overlapping_sprite, "dart_health_max")) {
-        tower_options.push("Increase dart durability ($40) to " + (sprites.readDataNumber(overlapping_sprite, "dart_health") + 999999999999) + " Bloons")
+        tower_options.push("Increase dart durability ($40) to " + (sprites.readDataNumber(overlapping_sprite, "dart_health") + 1) + " Bloons")
     }
     blockMenu.showMenu(tower_options, MenuStyle.List, MenuLocation.BottomHalf)
     wait_for_menu_select()
@@ -185,17 +185,17 @@ function tack_shooter_right_click () {
         info.changeScoreBy(sprites.readDataNumber(overlapping_sprite, "sell_price"))
         overlapping_sprite.destroy()
     } else if (blockMenu.selectedMenuOption().includes("Decrease firing delay") && info.score() >= 50) {
-        sprites.changeDataNumberBy(overlapping_sprite, "fire_dart_delay", -99999999999)
+        sprites.changeDataNumberBy(overlapping_sprite, "fire_dart_delay", -250)
         sprites.changeDataNumberBy(overlapping_sprite, "sell_price", 30)
         overlapping_sprite.startEffect(effects.halo, 1000)
         change_score(-50)
     } else if (blockMenu.selectedMenuOption().includes("Increase tacks shot") && info.score() >= 70) {
-        sprites.changeDataNumberBy(overlapping_sprite, "dart_count", 999999999)
+        sprites.changeDataNumberBy(overlapping_sprite, "dart_count", 1)
         sprites.changeDataNumberBy(overlapping_sprite, "sell_price", 45)
         overlapping_sprite.startEffect(effects.halo, 1000)
         change_score(-70)
     } else if (blockMenu.selectedMenuOption().includes("Increase dart durability") && info.score() >= 40) {
-        sprites.changeDataNumberBy(overlapping_sprite, "dart_health", 9999999)
+        sprites.changeDataNumberBy(overlapping_sprite, "dart_health", 1)
         sprites.changeDataNumberBy(overlapping_sprite, "sell_price", 30)
         overlapping_sprite.startEffect(effects.halo, 1000)
         change_score(-40)
@@ -357,7 +357,7 @@ function fade_out (time: number, block: boolean) {
 }
 info.onCountdownEnd(function () {
     if (!(starting_wave)) {
-        wave += 1
+        wave += 2
         starting_wave = false
         in_wave = false
         timer.background(function () {

@@ -331,8 +331,7 @@ function overlapped_sprite_of_kind (sprite: Sprite, kind: number) {
 function summon_dart (image_index: number, sprite: Sprite) {
     if (fps < 15) {
         projectile = sprites.createProjectileFromSprite(img`
-            f f 
-            f f 
+         
             `, sprite, 0, 0)
     } else if (average_fps > 15) {
         projectile = sprites.createProjectileFromSprite(dart_image_from_index(image_index).clone(), sprite, 0, 0)
